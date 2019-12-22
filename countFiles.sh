@@ -9,7 +9,7 @@ do
     then
     COUNT=0 
     echo $COUNT
-    exit 1
+    exit -1
     fi
 done
 else
@@ -20,7 +20,7 @@ do
     then
     COUNT=0 
     echo $COUNT
-    exit 1
+    exit -1
     fi
 done
 fi
