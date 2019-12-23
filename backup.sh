@@ -67,9 +67,6 @@ walk() {
         # local indent="${2:-0}"
         # printf "\n%*s${RED}%s${NCL}\n\n" "$indent" '' "$1"
         # If the entry is a file do some operations
-        echo $1
-        echo $2
-        echo $3
         for entry in "$1"/*; do [[ -f "$entry" ]] && scan "${fin_dir}"; done
         # If the entry is a directory call walk() == create recursion
         for entry in "$1"/* 
@@ -102,7 +99,9 @@ cd ..
 strlen_1=`echo -n "${ABS_PATH}" | wc -m`
 strlen_2=`echo -n "${ABS_PATH_2}" | wc -m`
 fin_dir="${ABS_PATH_2}"
+echo "files copied from ${ABS_PATH} to ${ABS_PATH_2} are"
 walk ${ABS_PATH} ${ABS_PATH_2} $strlen_1
 fin_dir="${ABS_PATH}"
+echo "files copied from ${ABS_PATH_2} to ${ABS_PATH} are"
 walk ${ABS_PATH_2} ${ABS_PATH} $strlen_2
 
