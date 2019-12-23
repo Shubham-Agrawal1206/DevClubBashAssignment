@@ -76,6 +76,7 @@ walk() {
         sub_dir="${entry:$3}"
         fin_dir="${2}${sub_dir}"
         strlen_fin=`echo -n "${fin_dir}" | wc -m`
+        strlen_ent=`echo -n "${entry}" | wc -m`
         if [ ! -d "$fin_dir" ]
         then
         FOLDER_NAME="$(basename "${entry}")"
@@ -87,7 +88,7 @@ walk() {
         walkv2 "$entry"
         continue
         fi
-        walk "$entry" "$fin_dir" $strlen_fin
+        walk "$entry" "$fin_dir" $strlen_ent
         fi
         done
 }
